@@ -26,15 +26,15 @@ jobs:
     - name: START angular test
       run: |
         cd angular
+        npm run test
         npm install
-  
   
     - name: Build
       run: |
         cd angular
         npm run ng build
         cd dist     
-        npm run test
+        
         
     - name: Make images
       run: |
