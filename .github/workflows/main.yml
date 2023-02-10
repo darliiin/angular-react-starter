@@ -26,8 +26,8 @@ jobs:
     - name: START angular test
       run: |
         cd angular
-        npm run test
         npm install
+        npm run test
   
     - name: Build
       run: |
