@@ -1,6 +1,9 @@
 name: onetest
 
-on: [push]
+on: 
+  push:
+    branches:
+      - 'feature/add-ci'
 
 env:
   REGISTRY: ghcr.io
@@ -16,28 +19,25 @@ jobs:
     steps:
     - name: Git clone my repo
       uses: actions/checkout@v3
-
-    - name: Clone repo
-      run: |
-        git clone https://github.com/ganatan/angular-react-starter.git  
-        
+      with:
+        fetch-depth: 0
+ 
+  
     - name: START angular test
       run: |
-        cd angular-react-starter
         cd angular
         npm install
   
   
     - name: Build
       run: |
-        cd angular-react-starter
         cd angular
         npm run ng build
         cd dist     
         
     - name: Make images
       run: |
-        docker build -t myang -f /home/runner/work/angular-react-starter/angular-react-starter/Dockerfile .
+        docker build -t angular-starter .
     
       
     - name: Log in to the Container registry
