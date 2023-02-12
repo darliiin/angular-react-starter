@@ -32,7 +32,7 @@ jobs:
           
     - name: STOP angular test
       run: |
-        pm run test -- --watch=false
+        npm run test -- --watch=false
        
   
     - name: Build
