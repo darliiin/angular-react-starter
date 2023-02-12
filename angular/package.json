@@ -6,7 +6,7 @@
     "start": "ng serve --port 4200",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --browsers ChromeHeadless",
+    "test": "ng test",
     "coverage": "ng test --no-watch --code-coverage",
     "serve": "node server",
     "lint": "ng lint"
