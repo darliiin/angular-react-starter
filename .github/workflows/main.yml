@@ -28,6 +28,11 @@ jobs:
         cd angular
         npm install
         npm run test
+          
+          
+    - name: STOP angular test
+      run: |
+        pm run test -- --watch=false
        
   
     - name: Build
