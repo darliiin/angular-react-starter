@@ -80,5 +80,5 @@ jobs:
       id: duration
       run: echo "::set-output nema=duration::$((date +%s) - $start_time)"
       
-    - nama: show time
+    - name: show time
       run: echo "Pipeline took $duration second"
