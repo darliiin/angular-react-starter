@@ -20,14 +20,10 @@ jobs:
     steps:
     
     - name: Set start time
-      id: set-start-time
-      uses: actions/bin@v2
+      uses: actions/bin@main
+      id: start-time
       with:
-        args: echo "start_time=$(date +%s)"
-
-    - name: Get start time
-      run: echo "Start time is ${{ steps.set-start-time.outputs.filtered_output }}"
-    
+        args: echo "::set-env name=PIPELINE_START::$(date +%s)"
     
     - name: Git clone my repo
       uses: actions/checkout@v3
