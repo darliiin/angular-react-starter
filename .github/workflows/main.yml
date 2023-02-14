@@ -20,8 +20,8 @@ jobs:
     steps:
     
     - name: Get current time
-      id: start_time
-      run: echo "::set-output name=start_time::$(date +%s)"
+      id: pipeline-time-start
+      run: echo "::set-env name=PIPELINE_START::$(date +%s)"
     
     
     - name: Git clone my repo
@@ -76,10 +76,10 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
       
-    - name: Get current time
-      id: end_time
-      run: echo "::set-output name=end_time::$(date +%s)"
-      
-    - name: Calculate pipeline time
-      run: echo "Pipeline time: $(($(date +%s) - ${{ steps.end_time.outputs.start_time }})) seconds"
-   
+    - name: Measure pipeline time
+      id: pipeline-time-end
+      run: echo "::set-env name=PIPELINE_END::$(date +%s)"
+
+    - name: Report pipeline time
+      run: |
+        echo "Pipeline time: $((${env.PIPELINE_END}-${env.PIPELINE_START})) seconds"
