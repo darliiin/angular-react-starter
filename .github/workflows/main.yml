@@ -21,7 +21,7 @@ jobs:
     
     - name: Set pipeline start time
       id: start_time
-      run: echo "::set-env name=start_time::$(data +%s)"
+      run: echo "::set-env name=start_time::$(date +%s)"
     
     
     - name: Git clone my repo
