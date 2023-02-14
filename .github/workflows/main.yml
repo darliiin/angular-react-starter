@@ -19,9 +19,14 @@ jobs:
 
     steps:
     
-    - name: Set pipeline start time
-      id: start_time
-      run: echo "::set-env name=start_time::$(date +%s)"
+    - name: Set start time
+      id: set-start-time
+      uses: actions/bin/filter@master
+      with:
+        args: echo "start_time=$(date +%s)"
+
+    - name: Get start time
+      run: echo "Start time is ${{ steps.set-start-time.outputs.filtered_output }}"
     
     
     - name: Git clone my repo
