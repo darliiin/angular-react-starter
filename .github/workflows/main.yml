@@ -21,7 +21,7 @@ jobs:
     
     - name: Set start time
       id: set-start-time
-      uses: actions/bin/filter@master
+      uses: actions/bin@v2
       with:
         args: echo "start_time=$(date +%s)"
 
