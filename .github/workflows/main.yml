@@ -17,6 +17,12 @@ jobs:
      packages: write
 
     steps:
+    
+    - name: Get current time
+      id: start_time
+      run: echo "::set-output name=start_time::$(date +%s)"
+    
+    
     - name: Git clone my repo
       uses: actions/checkout@v3
       with:
@@ -69,4 +75,10 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
       
+    - name: Get current time
+      id: end_time
+      run: echo "::set-output name=end_time::$(date +%s)"
+      
+    - name: Calculate pipeline time
+      run: echo "Pipeline time: $(($(date +%s) - ${{ steps.end_time.outputs.start_time }})) seconds"
    
