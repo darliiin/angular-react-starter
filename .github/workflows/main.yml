@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  start_time: $SECONDS
+  start_time: start_time=$(date +%s)
 
 jobs:
   one_test:
@@ -75,5 +75,5 @@ jobs:
       
     - name: stop time
       run: |
-       end_time=$SECONDS
+       end_time=$(date +%s)
        echo "Duration: $((end_time - start_time)) seconds"
