@@ -9,6 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  START_TIME: ${{ steps.set_start_time.outputs.start_time }}
 
 jobs:
   one_test:
@@ -18,13 +19,6 @@ jobs:
      packages: write
 
     steps:
-    
-  
-    - name: Set start time
-      id: start-time
-      run: |
-        printf '::set-output name=timestamp::%(%s)T\n'
-    
     
     - name: Git clone my repo
       uses: actions/checkout@v3
@@ -79,10 +73,7 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
       
     - name: stop time
-      id: duration
       run: |
-        printf -v now '%(%s)T'
-        duration=$((now - ${{ steps.start.outputs.timestamp }}))
-      
-    - name: show time
-      run: echo "Pipeline took $duration second"
+       printf -v now '%(%s)T'
+       duration=$((now - $START_TIME))
+       echo "Duration: $duration seconds"
