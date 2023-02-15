@@ -21,7 +21,7 @@ jobs:
     - name: Set start time
       id: set_start_time
       run: |
-        echo "::set-output name=start_time::$(date +%s)"
+        echo '::set-output name=timestamp::%(%s)T\n'
         shell: bash
     
     - name: Git clone my repo
