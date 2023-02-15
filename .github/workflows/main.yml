@@ -80,7 +80,9 @@ jobs:
       
     - name: stop time
       id: duration
-      run: echo "::set-output nema=duration::$((date +%s) - $start_time)"
+      run: |
+        printf -v now '%(%s)T'
+        duration=$((now - ${{ steps.start.outputs.timestamp }}))
       
     - name: show time
       run: echo "Pipeline took $duration second"
