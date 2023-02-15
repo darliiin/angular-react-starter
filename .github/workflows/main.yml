@@ -9,7 +9,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  START_TIME: ${{ steps.set_start_time.outputs.start_time }}
 
 jobs:
   one_test:
@@ -19,6 +18,11 @@ jobs:
      packages: write
 
     steps:
+    - name: Set start time
+      id: set_start_time
+      run: |
+        echo "::set-output name=start_time::$(date +%s)"
+        shell: bash
     
     - name: Git clone my repo
       uses: actions/checkout@v3
