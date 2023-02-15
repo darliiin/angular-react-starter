@@ -75,6 +75,6 @@ jobs:
       
     - name: stop time
       run: |
-       env start_time
+       env 
        duration=$((now - $start_time))
        echo "Duration: $duration seconds"
