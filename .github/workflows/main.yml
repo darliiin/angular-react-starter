@@ -19,11 +19,12 @@ jobs:
 
     steps:
     
+  
     - name: Set start time
-      uses: actions/bin@main
       id: start-time
-      with:
-        args: echo "::set-env name=PIPELINE_START::$(date +%s)"
+      run: |
+        printf '::set-output name=timestamp::%(%s)T\n'
+    
     
     - name: Git clone my repo
       uses: actions/checkout@v3
