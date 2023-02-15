@@ -75,6 +75,5 @@ jobs:
       
     - name: stop time
       run: |
-       printf -v now '%(%s)T'
        duration=$((now - $start_time))
        echo "Duration: $duration seconds"
