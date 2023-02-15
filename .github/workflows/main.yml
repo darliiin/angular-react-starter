@@ -76,4 +76,4 @@ jobs:
     - name: stop time
       run: |
        end_time=$(date +%s)
-       echo "Duration: $((end_time - start_time)) seconds"
+       echo "Duration: $(($end_time - $start_time)) seconds"
