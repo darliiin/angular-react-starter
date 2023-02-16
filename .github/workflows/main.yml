@@ -10,7 +10,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   start_time: start_time=
-  end_time: end_time=$0
+  end_time: 1+1
   Duration: Duration=$0
 
 jobs:
