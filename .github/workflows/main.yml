@@ -9,7 +9,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  start_time: 'date +%s'
   end_time: end_time=$0
   Duration: Duration=$0
 
@@ -30,6 +29,7 @@ jobs:
   
     - name: START angular test
       run: |
+        start_time=$(date +%s)
         cd angular
         npm install
         npm run test -- --watch=false
