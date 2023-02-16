@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  start_time: start_time=${{ date +%s }}
+  start_time: start_time=${ date +%s }
   end_time: end_time=$0
   Duration: Duration=$0
 
