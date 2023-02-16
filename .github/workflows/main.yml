@@ -80,4 +80,5 @@ jobs:
        end_time=$(date +%s)
        echo #start_time
        echo #end_time
-       echo "Duration=$(($end_time - $start_time)) seconds"
+       Duration=$(($end_time - $start_time))
+       echo #Duration
