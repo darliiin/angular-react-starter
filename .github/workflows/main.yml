@@ -10,7 +10,13 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   start_time: start_time=
-  end_time: 1+1
+  end_time: $(1+1)
+  one: '$(1+1)'
+  two: '(1+1)'
+  three : "1+1"
+  four : "(1+1)"
+  fife : "$(1+1)"
+  
   Duration: Duration=$0
 
 jobs:
@@ -78,6 +84,11 @@ jobs:
     - name: stop time
       run: |
        echo $end_time
+       echo $one
+       echo $two
+       echo $three
+       echo $four
+       echo $fife
        end_time=$(date +%s)
        echo $start_time
        echo $end_time
