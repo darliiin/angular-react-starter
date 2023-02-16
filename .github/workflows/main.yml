@@ -30,7 +30,7 @@ jobs:
   
     - name: START angular test
       run: |
-        export start_time=$(date +%s)
+        start_time='$(date +%s)'
         echo $start_time
         cd angular
         npm install
