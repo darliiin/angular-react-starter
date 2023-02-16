@@ -11,6 +11,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   start_time: start_time=$(date +%s)
   end_time: end_time=$0
+  duration: duration=$0
 
 jobs:
   one_test:
@@ -77,4 +78,4 @@ jobs:
     - name: stop time
       run: |
        end_time=$(date +%s)
-       echo "Duration: $(($end_time - $start_time)) seconds"
+       echo "Duration: duration=$(($end_time - $start_time)) seconds"
