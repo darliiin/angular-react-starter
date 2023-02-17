@@ -30,14 +30,9 @@ jobs:
   
     - name: START angular test
       run: |
-        start_time=$(date +%s)
-        echo $start_time
         cd angular
         npm install
         npm run test -- --watch=false
-      id: start_angular_test
-      env: 
-        Start_time: $start_time
        
        
     - name: STOP angular
@@ -83,6 +78,5 @@ jobs:
       run: |
        end_time=$(date +%s)
        echo $start_time
-       echo $Start_time
        echo $end_time
 
