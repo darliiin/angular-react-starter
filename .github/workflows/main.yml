@@ -79,9 +79,14 @@ jobs:
       
     - name: stop time
       run: |
-       end_time=$(date +%s)
-       echo ${{ steps.set_start_time.outputs.start_time }}
+       start_time=${{ steps.set_start_time.outputs.start_time }}
+       end_time=$(date +%s)  
        echo $start_time
        echo $end_time
+       
+       duration=$(( end_time - start_time ))
+       echo "Duration: $duration seconds"
+       
+       
        
 
