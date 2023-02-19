@@ -22,10 +22,16 @@ jobs:
 
     steps:
     
+    
+    
     - name: Git clone my repo
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+        
+    - name: Set start time
+      id: set_start_time
+      run: echo "::set-output name=start_time::$(date +%s)"
  
   
     - name: START angular test
