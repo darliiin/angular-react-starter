@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  START_TIME: ${{ env.START_TIME = `date +%s` }}
+  START_TIME: ${{ env.START_TIME }}
   end_time: 0
   Duration: Duration=$0
 
@@ -29,8 +29,7 @@ jobs:
         
     - name: Set start time
       id: set_start_time
-      run: echo "::set-output name=start_time::$(date +%s)"
- 
+      run: echo "::set-env name=START_TIME::$(date +%s)"
   
     - name: START angular test
       run: |
